@@ -54,10 +54,9 @@ target_link_directories(hello_hip
   PRIVATE /opt/rocm/lib
 )
 
-# target_link_libraries(hello_hip
-#   PRIVATE rocrand
-#   PRIVATE rocsparse
-# )
+target_link_libraries(hello_hip
+  PRIVATE rocprim
+)
 
 ####################################################
 ############ TARGET COMPILE OPTIONS ################
