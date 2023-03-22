@@ -1,6 +1,7 @@
 #include <hip/hip_runtime.h>
 #include <hello_hip.hxx>
 
+#include <rocprim/thread/thread_operators.hpp>
 #include <rocprim/thread/thread_search.hpp>
 #include <rocprim/iterator/counting_iterator.hpp>
 
