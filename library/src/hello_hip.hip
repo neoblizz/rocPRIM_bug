@@ -18,14 +18,14 @@ struct CoordinateT
 __global__ void hello_hip() {
   printf("Hello World!\n");
   CoordinateT coord;
-  int diagonal = 0;
-  int a_len = 0;
-  int b_len = 0;
+  std::size_t diagonal = 0;
+  std::size_t a_len = 0;
+  std::size_t b_len = 0;
 
-  auto a = rocprim::counting_iterator<int>(0);
-  auto b = rocprim::counting_iterator<int>(0);
+  auto a = rocprim::counting_iterator<long>(0);
+  auto b = rocprim::counting_iterator<long>(0);
 
-  merge_path_search(diagonal, a, b, a_len, b_len, coord);
+  rocprim::merge_path_search(diagonal, a, b, a_len, b_len, coord);
 }
 
 void launch_hello_hip() {
