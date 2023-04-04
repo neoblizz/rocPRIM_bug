@@ -2,6 +2,7 @@
 #include <hello_hip.hxx>
 
 #include <rocprim/functional.hpp> // Bug fix: https://ontrack.amd.com/browse/EXSWSTRHPC-192
+#include <rocprim/thread/thread_operators.hpp>
 #include <rocprim/thread/thread_search.hpp>
 #include <rocprim/iterator/counting_iterator.hpp>
 

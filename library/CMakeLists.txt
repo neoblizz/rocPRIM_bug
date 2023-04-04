@@ -43,19 +43,19 @@ set(HELLO_HIP_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 target_include_directories(hello_hip
   PUBLIC ${HELLO_HIP_INCLUDE_DIR}
-  PRIVATE /opt/rocm/include
-  PRIVATE /opt/rocm/hip/include/
+  INTERFACE ${ROCM_INCLUDE}
+  INTERFACE ${HIP_INCLUDES}
 )
 
 ####################################################
 ########## TARGET LINK LIBRARIES/DIRS ##############
 ####################################################
-target_link_directories(hello_hip 
-  PRIVATE /opt/rocm/lib
+target_link_directories(hello_hip
+  INTERFACE ${ROCM_LIBRARY}
 )
 
 target_link_libraries(hello_hip
-  PRIVATE rocprim
+  PRIVATE roc::rocprim
 )
 
 ####################################################

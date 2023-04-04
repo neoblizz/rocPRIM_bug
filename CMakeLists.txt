@@ -21,8 +21,22 @@ else()
 endif()
 
 # Adding CMAKE_PREFIX_PATH, needed for static builds
-list(APPEND CMAKE_PREFIX_PATH /opt/rocm/llvm /opt/rocm )
-list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake ${ROCM_PATH}/lib/cmake/hip /opt/rocm/lib/cmake/hip /opt/rocm/hip/cmake)
+list(APPEND CMAKE_PREFIX_PATH 
+    ${ROCM_PATH}/llvm 
+    ${ROCM_PATH} 
+)
+
+list(APPEND CMAKE_MODULE_PATH 
+    ${CMAKE_CURRENT_SOURCE_DIR}/cmake 
+    ${ROCM_PATH}/lib/cmake/hip 
+    ${ROCM_PATH}/lib/cmake/hip 
+    ${ROCM_PATH}/hip/cmake
+)
+
+# ROCM and HIP include paths.
+set(ROCM_LIBRARY ${ROCM_PATH}/lib)
+set(ROCM_INCLUDE ${ROCM_PATH}/include)
+set(HIP_INCLUDES ${ROCM_PATH}/hip/include)
 
 project(hello_hip
   LANGUAGES CXX C HIP
